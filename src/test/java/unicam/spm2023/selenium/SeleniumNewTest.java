@@ -2,6 +2,7 @@ package unicam.spm2023.selenium;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -21,13 +23,16 @@ class SeleniumNewTest {
 
 	static String projectPath;	
 	static WebDriver driver;
+
+	static ChromeOptions options;
 	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 projectPath = System.getProperty("user.dir");
+		WebDriverManager.chromedriver().setup();
+		options.addArguments("--headless");
 	}
 	
 	
@@ -43,7 +48,8 @@ class SeleniumNewTest {
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
-
+		//System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/java/unicam/spm2023/drivers/chromedriver");
+		//driver = new ChromeDriver();
 	}
 
 	/**
