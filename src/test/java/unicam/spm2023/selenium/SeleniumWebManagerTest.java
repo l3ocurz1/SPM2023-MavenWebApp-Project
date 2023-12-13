@@ -40,7 +40,7 @@ public class SeleniumWebManagerTest {
         @BeforeAll
         static void setUpBeforeClass() throws Exception {
                 WebDriverManager.chromedriver().setup();
-                options.addArguments("--headless");
+
         }
 
 
