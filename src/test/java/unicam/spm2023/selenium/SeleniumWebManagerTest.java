@@ -3,6 +3,7 @@ package unicam.spm2023.selenium;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -40,6 +41,7 @@ public class SeleniumWebManagerTest {
         @BeforeAll
         static void setUpBeforeClass() throws Exception {
                 WebDriverManager.chromedriver().setup();
+                options.addArguments("--headless");
 
         }
 
@@ -57,6 +59,7 @@ public class SeleniumWebManagerTest {
          */
         @BeforeEach
         void setUp() throws Exception {
+                driver = new ChromeDriver(options);
         }
 
         /**
