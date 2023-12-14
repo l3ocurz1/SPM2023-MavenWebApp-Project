@@ -14,7 +14,7 @@ public class SeleniumWebManagerTest {
 
         static WebDriver driver;
 
-        static ChromeOptions options;
+        static ChromeOptions options = new ChromeOptions();
 
         @Test
         void checkProsSite() throws InterruptedException {

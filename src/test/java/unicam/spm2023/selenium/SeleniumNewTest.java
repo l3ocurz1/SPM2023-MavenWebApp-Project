@@ -24,7 +24,7 @@ class SeleniumNewTest {
 	static String projectPath;	
 	static WebDriver driver;
 
-	static ChromeOptions options;
+	static ChromeOptions options = new ChromeOptions();
 	
 	/**
 	 * @throws java.lang.Exception
@@ -32,6 +32,7 @@ class SeleniumNewTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		WebDriverManager.chromedriver().setup();
+		options.addArguments("--headless");
 
 	}
 	
@@ -40,7 +41,8 @@ class SeleniumNewTest {
 	 * @throws java.lang.Exception
 	 */
 	@AfterAll
-	static void tearDownAfterClass() throws Exception {		
+	static void tearDownAfterClass() throws Exception {
+
 	}
 
 	/**
@@ -49,7 +51,8 @@ class SeleniumNewTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		//System.setProperty("webdriver.chrome.driver", projectPath+"/src/test/java/unicam/spm2023/drivers/chromedriver");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
+
 	}
 
 	/**
